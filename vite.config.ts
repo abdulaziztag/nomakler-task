@@ -19,7 +19,9 @@ const alias: AliasOptions = getAlias([
   'layouts'
 ])
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue({
+    reactivityTransform: true
+  })],
   resolve: {
     alias
   }
