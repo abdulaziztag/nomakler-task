@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const emit = defineEmits(['update:modelValue'])
   defineProps({
     label: {
       type: [String, Boolean],
@@ -13,6 +14,9 @@
       default: ''
     }
   })
+const updateValue = (e: Event) => {
+  emit('update:modelValue', (e.target as HTMLInputElement).value)
+};
 </script>
 
 <template>
@@ -26,7 +30,7 @@
       :value="modelValue"
       class="rounded-md outline-0 px-3 py-2 items-center focus:border-blue-500 focus:border-2 border-2 border-white"
       v-bind="$attrs"
-      @input="$emit('update:modelValue', $event.target.value)"
+      @input="updateValue"
     >
     <span
       v-if="errorMessage !== ''"
