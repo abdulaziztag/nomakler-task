@@ -4,7 +4,7 @@ import img from 'assets/auth_img.png'
 
 <template>
   <div class="bg-deepBlue min-h-[100vh] flex justify-center items-center select-none">
-    <div class="rounded-xl bg-blueGray-100 flex flex-row">
+    <div class="rounded-xl bg-blueGray-100 my-3 flex flex-row">
       <div class="py-12 px-16">
         <router-view />
       </div>
@@ -13,7 +13,7 @@ import img from 'assets/auth_img.png'
         width="454"
         height="718"
         alt="house"
-        class="rounded-r-xl"
+        class="rounded-r-xl xl:max-2xl:flex max-lg:hidden"
       >
     </div>
   </div>
