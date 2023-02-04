@@ -1,6 +1,18 @@
 <script setup lang="ts">
   import AppInput from 'components/AppInput.vue';
-  import AppButton from '../components/AppButton.vue';
+  import AppButton from 'components/AppButton.vue';
+  import {ref} from 'vue';
+  import {auth} from 'store/auth';
+
+  const authStore = auth()
+
+  const phone = ref('+998 (')
+
+
+  const getOtp = async () => {
+    await authStore.getOtp(phone.value)
+  }
+
 </script>
 
 <template>
@@ -13,13 +25,16 @@
         Для продолжения введите номер телефона
       </h4>
       <AppInput
+        v-model="phone"
+        v-maska
         label="Номер телефона"
-        model-value=""
         class="mb-8"
+        data-maska="+998 (##) ###-##-##"
       />
       <AppButton
-        button-type="disabled"
-        :disabled="true"
+        :button-type="phone.length === 19 ? 'active' : 'disabled'"
+        :disabled="phone.length !== 19"
+        @click="getOtp"
       >
         Продолжить
       </AppButton>
