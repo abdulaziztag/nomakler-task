@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {ButtonVariants} from 'interfaces/Button';
-import {toRefs} from 'vue';
+import {ButtonVariant, ButtonVariants} from 'interfaces/Button';
+import {PropType, toRefs} from 'vue';
 import { useRouter } from 'vue-router';
 const router = useRouter()
 
@@ -10,7 +10,7 @@ const props = defineProps({
     default: false
   },
   buttonType: {
-    type: String,
+    type: String as PropType<ButtonVariant>,
     default: 'active'
   },
   to: {
