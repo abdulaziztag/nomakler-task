@@ -10,10 +10,10 @@ const getAlias = (aliases: string[]): AliasOptions =>
 
 const alias: AliasOptions = getAlias([
   'components',
-  'types',
+  'utils',
   'assets',
   'views',
-  'state',
+  'store',
   'router',
   'interfaces',
   'layouts'

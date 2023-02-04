@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {BUTTON_TYPE} from '../interfaces/Button';
+import {BUTTON_TYPE} from 'interfaces/Button';
 import {toRefs} from 'vue';
 import { useRouter } from 'vue-router';
 const router = useRouter()
@@ -30,6 +30,7 @@ const goTo = () => {
   <button
     :disabled="disabled"
     :class="['text-center w-full py-3 border-2 focus:border-2 rounded-xl font-bold', BUTTON_TYPE[buttonType]]"
+    v-bind="$attrs"
     @click="goTo"
   >
     <slot />
